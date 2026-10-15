@@ -107,9 +107,34 @@
       },
       "theme": {
         "title": "Тема",
+        "style": {
+          "bookorbit": {
+            "label": "BookOrbit"
+          }
+        },
         "colorScheme": {
           "label": "Цветовая схема",
           "hint": "Легкий или темный интерфейс"
+        },
+        "surfacePalette": {
+          "palettes": {
+            "onyx": "Оникс",
+            "carbon": "Карбон",
+            "neutral": "Нейтральный",
+            "zinc": "Цинк",
+            "ash": "Пепельный",
+            "smoke": "Дымчатый",
+            "charcoal": "Угольный",
+            "midnight-blue": "Полночно-Синий",
+            "ocean": "Морской",
+            "olive": "Оливковый",
+            "sepia": "Сепия",
+            "crimson": "Багровый",
+            "plum": "Сливовый"
+          }
+        },
+        "topGlow": {
+          "value": "{value}%"
         },
         "accents": {
           "grey": "Серый",
@@ -834,7 +859,7 @@
         "achievementBackfillComplete": "Достижение завершено: присуждено наград {count}",
         "backfillRunFailed": "Не удалось запустить backfill",
         "achievementBackfillFailed": "Не удалось запустить резервную копию: {error}",
-        "uploadsGroup": "Выгрузки",
+        "uploadsGroup": "Загрузки",
         "maxUploadSize": "Максимальный размер загружаемого файла",
         "maxUploadSizeHint": "Настройте максимальный размер для загрузки файлов по всей системе.",
         "save": "Сохранить",
@@ -1138,6 +1163,7 @@
         "scanCounts": "{processed} из {total}",
         "scanNoChange": "без изменений",
         "outcomeSeparator": ", ",
+        "scanOutcome": "{trigger} · {outcome}",
         "syncConfirmBody": "Это перезапишет метаданные во всех поддерживаемых файлах непосредственно в папке {name} на диске. Это действие нельзя отменить.",
         "columns": {
           "library": "Библиотека",
@@ -1167,6 +1193,7 @@
           "on": "{name}: вкл",
           "off": "{name}: выкл"
         },
+        "durationMs": "{ms} мс",
         "durationSeconds": "{seconds} с",
         "durationMinutes": "{minutes}м {seconds}с",
         "history": {
@@ -1176,6 +1203,8 @@
           "result": "Результат",
           "status": "Состояние",
           "statusValue": {
+            "running": "Запущено",
+            "completed": "Выполнено",
             "failed": "Провалено"
           }
         },
@@ -1185,8 +1214,14 @@
           "countsAsFinished": "Считать законченными",
           "peopleWithAccess": "Пользователи с доступом",
           "none": "Отсутствует",
-          "allSupported": "Все поддерживаемые"
-        }
+          "allSupported": "Все поддерживаемые",
+          "historyEmpty": "Эта библиотека никогда не сканировалась.",
+          "historyFailed": "Не удалось загрузить историю сканирования для этой библиотеки."
+        },
+        "quick": {
+          "renameOn": "\"{name}\" будет переименовывать файлы по вашему шаблону при следующем сохранении их данных"
+        },
+        "viewChanges": "Просмотр изменений"
       },
       "authorEnrichment": {
         "configuration": "Конфигурация",
@@ -1214,6 +1249,14 @@
         "noEligibleAuthors": "Авторы не найдены",
         "noAuthorsToEnrich": "Нет авторов для обогащения",
         "queueFailed": "Не удалось создать резервную копию автора",
+        "fields": {
+          "description": "Биография",
+          "photo": "Фото",
+          "birthDate": "Дата рождения",
+          "deathDate": "Дата Смерти",
+          "website": "Сайт",
+          "genres": "Жанры"
+        },
         "metadataPreferences": {
           "title": "Источники полей"
         }
@@ -1589,6 +1632,11 @@
         "emptyTitle": "Нет заблокированных жанров",
         "emptyHint": "Добавьте точные значения, такие как Audiobook или Adult, чтобы они не были загружены метаданными.",
         "removeLabel": "Удалить {genre}"
+      },
+      "searchCache": {
+        "providers": {
+          "authors": "Авторы"
+        }
       },
       "customFields": {
         "label": "Метка",
@@ -2443,6 +2491,35 @@
         "book-dock": "Книжный док-бар",
         "maintenance": "Техническое обслуживание",
         "audit-log": "Журнал аудита"
+      },
+      "requests": {
+        "indexers": {
+          "sources": {
+            "plugin": "Установить плагин"
+          },
+          "fields": {
+            "searchByIsbn": "Поиск по ISBN"
+          },
+          "color": {
+            "label": "Цвет",
+            "none": "Нет цвета",
+            "options": {
+              "blue": "Синий",
+              "indigo": "Индиго",
+              "purple": "Фиолетовый",
+              "pink": "Розовый",
+              "red": "Красный",
+              "yellow": "Желтый",
+              "lime": "Лайм",
+              "green": "Зеленый",
+              "teal": "Бирюзовый"
+            }
+          },
+          "categories": {
+            "title": "Категории"
+          },
+          "plugin": "Плагин"
+        }
       }
     }
   },
@@ -2864,6 +2941,9 @@
         "bulkRecolored": "{count, plural, =0 {Переписано не заметок} one {Переписано # аннотация} few {Переписано # аннотации} many {Переписано # аннотации} other {Переписано # аннотации}}",
         "bulkRestyled": "{count, plural, =0 {Не написано никаких аннотаций} one {Переставлено # аннотации} few {Переставлено # аннотаций} many {Переставлено # аннотаций} other {Переставлено # аннотаций}}"
       }
+    },
+    "colors": {
+      "pink": "Розовый"
     }
   },
   "audit": {
@@ -3261,6 +3341,7 @@
         "selectVisible": "Выберите видимый",
         "refreshMetadata": "Обновить метаданные",
         "refreshingMetadata": "Обновление метаданных...",
+        "refreshAction": "Обновить",
         "deleteSelected": "Удалить выбранные",
         "deleting": "Удаление...",
         "exitSelection": "Выйти из выбора",
@@ -3964,7 +4045,10 @@
           "empty": "пустой",
           "showLess": "Меньше",
           "showMore": "Показать еще",
-          "coverPreviewAlt": "Просмотр обложки"
+          "coverPreviewAlt": "Просмотр обложки",
+          "fields": {
+            "authors": "Авторы"
+          }
         },
         "searchDrawer": {
           "searchTitle": "Поиск метаданных",
@@ -3990,6 +4074,11 @@
           "noResults": "Ничего не найдено",
           "noResultsHint": "Попробуйте изменить заголовок или автора",
           "searchPrompt": "Поиск выше, затем нажмите на результат, чтобы начать сравнение метаданных."
+        },
+        "match": {
+          "query": {
+            "author": "Автор"
+          }
         },
         "writeAndRename": "Записать в файл и переименовать",
         "writeAndRenameShort": "Запись и переименование"
@@ -4443,6 +4532,13 @@
       "nDone": "{count} завершён",
       "nFailed": "{count} не удалось"
     },
+    "uploadFailures": {
+      "reason": {
+        "storageFull": "На сервере не хватает свободного места",
+        "network": "Не удалось подключиться к серверу",
+        "status": "Ошибка загрузки (HTTP {status})"
+      }
+    },
     "fileList": {
       "emptyTitle": "Нет файлов в книжном док-баре",
       "emptyMessageDefault": "Загрузите файлы или добавьте их в папку \"Книга док\"",
@@ -4514,6 +4610,47 @@
       "alreadyExistsSaveAs": "Уже существует - сохранить как:",
       "renamePlaceholder": "напр. {name} (2)",
       "import": "Импорт"
+    }
+  },
+  "bookRequests": {
+    "search": {
+      "authorLabel": "Автор",
+      "authorPlaceholder": "Имя автора"
+    },
+    "grab": {
+      "subtitle": "Вставьте magnet-ссылку или загрузите .torrent для \"{title}\"."
+    },
+    "releases": {
+      "criteria": {
+        "isbn10": "ISBN-10",
+        "isbn13": "ISBN-13",
+        "isbns": "ISBNs",
+        "language": "Язык",
+        "languagePlaceholder": "Любой язык",
+        "formatsPlaceholder": "epub, azw3",
+        "customIsbnPlaceholder": "ISBN-10 или ISBN-13",
+        "addIsbn": "Добавить ISBN"
+      },
+      "refresh": "Повторить поиск",
+      "addSource": "Добавить источник",
+      "protocol": {
+        "torrent": "Торрент",
+        "direct": "Прямая загрузка"
+      }
+    },
+    "seed": {
+      "state": "Статус",
+      "uploaded": "Загружено"
+    },
+    "drawer": {
+      "label": "Детали запроса",
+      "previous": "Предыдущий запрос",
+      "next": "Следующий запрос",
+      "position": "{position} из {total}"
+    },
+    "table": {
+      "cover": "Обложка",
+      "title": "Заголовок"
     }
   },
   "collection": {
@@ -5173,6 +5310,48 @@
       "sending": "Отправка...",
       "queued": "{count, plural, =0 {Нет сообщений в очереди} one {одно письмо в очереди на} few {# писем в очереди} many {# писем в очереди} other {# писем в очереди}}",
       "failed": "Не удалось отправить"
+    },
+    "page": {
+      "editServer": "Редактировать {name}",
+      "editTemplate": "Редактировать {name}",
+      "editGroup": "Редактировать {name}"
+    },
+    "attention": {
+      "hide": "Скрыть",
+      "show": "Показать"
+    },
+    "status": {
+      "sending": "Отправка",
+      "failed": "Неудачно"
+    },
+    "log": {
+      "status": "Статус"
+    },
+    "editor": {
+      "recipient": {
+        "kindleLegacyFormat": "Kindle больше не принимает {format} по электронной почте. Выберите EPUB или PDF."
+      },
+      "server": {
+        "sectionProvider": "Провайдер",
+        "sectionServer": "Сервер",
+        "sectionSignIn": "Войти",
+        "sectionSender": "Отправитель",
+        "sectionWho": "Кто использует",
+        "presetGmail": "Gmail",
+        "presetOutlook": "Outlook",
+        "presetIcloud": "iCloud Mail",
+        "presetFastmail": "Fastmail",
+        "presetOther": "Другой SMTP",
+        "name": "Имя",
+        "host": "Хост",
+        "port": "Порт",
+        "security": "Безопасность",
+        "securityStarttls": "STARTTLS",
+        "securitySsl": "SSL/TLS",
+        "securityHint": "STARTTLS на 587, SSL/TLS на 465. Необходимо выбрать один.",
+        "username": "Имя пользователя",
+        "password": "Пароль"
+      }
     }
   },
   "errors": {
